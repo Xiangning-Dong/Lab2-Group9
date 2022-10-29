@@ -1,11 +1,16 @@
-Package: Lab2Test
+Package: Lab2
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Make boxplot and table based on DRG code.
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: YingLin Dai, Xiangning Dong, Jiayi Guo
+Maintainer: Xiangning Dong, Jiayi Guo, Yinglin Da
+Description: The package could first make boxplot based on choice from user, 
+  the choice can bechoosed from average covered charges, average total payments 
+  and average medicare payments. All boxplots will have the same x axis with DRG 
+  code and different y axis. Also, the package could make tables based on the 
+  choice from user, the choice can be choosed from mean, median and standard 
+  deviation, the table will be grouped by DRG code and calculate different values 
+  base on the choice.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

@@ -43,3 +43,34 @@ boxplot_pmt <- function(pmt) {
   }
 
 }
+
+
+makeBox <- function(option){
+  if(option == "Mean"){
+    # If choose to calculate the mean
+    drg %>%
+      # group with same DRG Code
+      group_by(DRG_Definition) %>%
+      # Calculate its mean and form a table
+      summarise(mean(Average_Medicare_Payments))
+  }
+  else if(option == "Median"){
+    # If choose to calculate the median
+    drg %>%
+      # group with same DRG Code
+      group_by(DRG_Definition) %>%
+      # Calculate its mean and form a table
+      summarise(median(Average_Medicare_Payments))
+  }
+  else{
+    # If choose to calculate the sd
+    drg %>%
+      # group with same DRG Code
+      group_by(DRG_Definition) %>%
+      # Calculate its mean and form a table
+      summarise(sd(Average_Medicare_Payments))
+  }
+}
+# Use map function to form three tables at a time
+map(c("Mean", "Median", "Sd"), makeBox)
+```

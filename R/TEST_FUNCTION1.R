@@ -1,6 +1,7 @@
 
 library(readr)
 library(tidyverse)
+library(devtools)
 drg <- read_csv('D:\\Data Science 1\\Projects\\Lab2-Group9\\DRG_data.csv')
 names(drg) <- gsub(" ", "_", names(drg))
 drg <- drg %>%
@@ -9,8 +10,8 @@ drg <- drg %>%
 setwd('..')
 save(drg, file = 'D:\\Data Science 1\\Test\\Lab2Test\\Data\\DRG_data.RData')
 
-data(drg)
-
+# data(drg)
+load("D:/Data Science 1/Test/Lab2-Group9/Data/DRG_data.RData")
 boxplot_pmt <- function(pmt) {
   if (pmt == 'Average_Covered_Charges') {
     ggplot(drg, aes(x = DRG_Code, y = Average_Covered_Charges, fill = DRG_Code)) +

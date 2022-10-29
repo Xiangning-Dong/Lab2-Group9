@@ -12,6 +12,23 @@ save(drg, file = 'D:\\Data Science 1\\Test\\Lab2Test\\Data\\DRG_data.RData')
 
 # data(drg)
 load("D:/Data Science 1/Test/Lab2-Group9/Data/DRG_data.RData")
+
+# Function 1
+
+#' Make A Boxplot of Payments By DRG Code
+#'
+#' @param pmt A payment category in  Medicare Severity Diagnosis Related Group data (DRG data)
+#'
+#' @return A boxplot of payments by DRG code
+#' @export
+#'
+#' @importFrom ggplot2 ggplot
+#' @importFrom ggplot2 geom_boxplot
+#' @importFrom tidyverse
+#'
+#' @examples
+#' boxplot_pmt('Average_Covered_Charges')
+#'
 boxplot_pmt <- function(pmt) {
   if (pmt == 'Average_Covered_Charges') {
     ggplot(drg, aes(x = DRG_Code, y = Average_Covered_Charges, fill = DRG_Code)) +
@@ -44,6 +61,17 @@ boxplot_pmt <- function(pmt) {
 
 }
 
+# Function 2
+
+#' Calculate A Statistics of Average Medicare Payments
+#'
+#' @param option A statistics (mean, median, or standard deviation) that is required to be calculated
+#'
+#' @return A mean, median, or standard deviation of average Medicare payments
+#' @export
+#'
+#' @importFrom tidyverse
+#' @examples makeBox("Mean")
 
 makeBox <- function(option){
   if(option == "Mean"){

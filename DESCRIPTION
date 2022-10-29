@@ -3,7 +3,7 @@ Type: Package
 Title: Make boxplot and table based on DRG code.
 Version: 0.1.0
 Author: YingLin Dai, Xiangning Dong, Jiayi Guo
-Maintainer: Xiangning Dong, Jiayi Guo, Yinglin Da
+Maintainer: YingLin Dai, Xiangning Dong, Jiayi Guo
 Description: The package could first make boxplot based on choice from user, 
   the choice can bechoosed from average covered charges, average total payments 
   and average medicare payments. All boxplots will have the same x axis with DRG 

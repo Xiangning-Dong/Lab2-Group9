@@ -3,6 +3,7 @@ library(readr)
 library(tidyverse)
 library(devtools)
 
+# Load data
 load("Data/DRG_data.RData")
 
 # Processing data
@@ -28,7 +29,7 @@ drg <- drg %>%
 #'
 
 boxplot_pmt <- function(pmt) {
-
+  # Give the option when the payment is the average covered charges
   if (pmt == 'Average_Covered_Charges') {
     ggplot(drg, aes(x = DRG_Code, y = Average_Covered_Charges, fill = DRG_Code)) +
       geom_boxplot() +
@@ -37,6 +38,7 @@ boxplot_pmt <- function(pmt) {
            y = 'Average Covered Charges') +
       theme_minimal() +
       theme(axis.text.x = element_text(size = 5, angle = 90), legend.position = "none")
+    # Give the option when the payment is the average total payments
   }else if (pmt == 'Average_Total_Payments') {
     ggplot(drg, aes(x = DRG_Code, y = Average_Total_Payments, fill =  DRG_Code)) +
       geom_boxplot() +
@@ -45,6 +47,7 @@ boxplot_pmt <- function(pmt) {
            y = 'Average Total Payments') +
       theme_minimal() +
       theme(axis.text.x = element_text(size = 5, angle = 90), legend.position = "none")
+    # Give the option when the payment is the average medicare payments
   }else if (pmt == 'Average_Medicare_Payments') {
     options(repr.plot.width = 2, repr.plot.height =3)
     ggplot(drg, aes(x = DRG_Code, y = Average_Medicare_Payments, fill = DRG_Code)) +
@@ -54,10 +57,10 @@ boxplot_pmt <- function(pmt) {
            y = 'Average Medicare Payments') +
       theme_minimal() +
       theme(axis.text.x = element_text(size = 5, angle = 90), legend.position = "none")
+    # Give a warning when the name does not match with the options
   } else {
     print('Wrong Name')
   }
-
 }
 
 # Function 2
@@ -77,7 +80,7 @@ makeBox <- function(option){
   if(option == "Mean"){
     # If choose to calculate the mean
     drg %>%
-      # group with same DRG Code
+      # Group with same DRG Code
       group_by(DRG_Definition) %>%
       # Calculate its mean and form a table
       summarise(mean(Average_Medicare_Payments))
@@ -85,7 +88,7 @@ makeBox <- function(option){
   else if(option == "Median"){
     # If choose to calculate the median
     drg %>%
-      # group with same DRG Code
+      # Group with same DRG Code
       group_by(DRG_Definition) %>%
       # Calculate its mean and form a table
       summarise(median(Average_Medicare_Payments))
@@ -93,7 +96,7 @@ makeBox <- function(option){
   else{
     # If choose to calculate the sd
     drg %>%
-      # group with same DRG Code
+      # Group with same DRG Code
       group_by(DRG_Definition) %>%
       # Calculate its mean and form a table
       summarise(sd(Average_Medicare_Payments))

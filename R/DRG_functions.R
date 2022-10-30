@@ -3,14 +3,7 @@ library(readr)
 library(tidyverse)
 library(devtools)
 
-# Load data
-# drg <- read_csv('D:\\Data Science 1\\Projects\\Lab2-Group9\\DRG_data.csv')
-
-# setwd('..')
-# save(drg, file = 'D:\\Data Science 1\\Test\\Lab2Test\\Data\\DRG_data.RData')
-
-# data(drg)
-# load("D:/Data Science 1/Test/Lab2-Group9/Data/DRG_data.RData")
+load("Data/DRG_data.RData")
 
 # Processing data
 names(drg) <- gsub(" ", "_", names(drg)) # Rename the variables
